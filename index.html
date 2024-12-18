@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>רפואה בראש שקט</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+<div id="container">
+    <nav>
+        <!-- תפריט ניווט ראשי, מוסתר במובייל באמצעות מחלקת hide-mobile -->
+        <div class="nav-content">
+            <!-- כפתור תפריט למכשירים ניידים שמפעיל את פונקציית toggleNav -->
+            <button id="nav-button" class="btn-mobile" onclick="toggleNav()">
+                <i class="material-icons">menu</i>
+            </button>
+
+            <ul id="main-nav" class="flex-container-nav hide-mobile">
+                <li><a href="index.html">דף הבית</a></li>
+                <li><a href="#" class="inactive" title="עמוד זה אינו פעיל">זימון תורים</a></li>
+                <li><a href="#" class="inactive" title="עמוד זה אינו פעיל">מי אנחנו</a></li>
+                <li><a href="#" class="inactive" title="עמוד זה אינו פעיל">צור קשר</a></li>
+            </ul>
+
+            <!-- כפתור ההורדה כחלק מהתפריט -->
+        <div id="download-item">
+            <a id="downloadBtn" href="images/services_health-declaration-2021.pdf" download="services_health.pdf">
+                <span class="material-icons">download</span>
+                <span> הצהרת בריאות</span>
+            </a>
+        </div>
+        </div>
+        <!-- לוגו האתר כקישור -->
+        <a href="index.html">
+            <img alt="logo" src="images/logo.png" id="logo-img">
+        </a>
+    </nav>
+
+    <header>
+        <!-- תמונת רקע בראש העמוד -->
+        <div class="header-image-wrapper">
+            <img src="images/1.png" id="background-header-image" alt="תמונת רקע">
+        </div>
+
+        <!-- כותרות ראשיות באתר -->
+        <h1 class="text-center mt-4 mb-3">רפואה בראש שקט </h1>
+        <h2 class="text-center mb-4">לומדים &nbsp;&nbsp;|&nbsp; נרגעים &nbsp;&nbsp;|&nbsp; נבדקים</h2>
+
+        <!-- שורת חיפוש -->
+        <div class="search-container mb-4">
+            <input type="text" id="searchInput" placeholder="חפש בדיקות..." class="form-control">
+            <button id="searchButton" class="btn btn-primary">חפש</button>
+        </div>
+
+        <!-- כפתורי סינון -->
+        <div class="d-flex justify-content-center mt-3 mb-4">
+            <button class="btn btn-secondary w-25 me-2 filter-button" data-category="all">הכל</button>
+            <button class="btn btn-secondary w-25 me-2 filter-button" data-category="מעבדה">מעבדה</button>
+            <button class="btn btn-secondary w-25 me-2 filter-button" data-category="פיזיות">פיזיות</button>
+            <button class="btn btn-secondary w-25 filter-button" data-category="רנטגן">רנטגן</button>
+        </div>
+    </header>
+
+    <main class="mt-5">
+        <div>
+            <div class="row m-5">
+                <!-- מקום לכרטיסיות -->
+                <div class="col-12">
+                    <div class="row" id="itemsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- כותרת תחתונה עם זכויות יוצרים וקישורים -->
+        <div class="d-flex align-items-center flex-column p-3">
+            <p>© כל הזכויות שמורות ללירי קטנוב, שרון בר ושחר הררי</p>
+            <p>התמונות בדף נוצרו באמצעות <a href="https://www.canva.com/" target="_blank">Canva</a></p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+
+</html>

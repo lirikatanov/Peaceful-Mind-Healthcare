@@ -1,0 +1,329 @@
+/* הגדרות בסיסיות */
+:root {
+    --primary-color: #0e2a47; /* צבע ראשי */
+    --secondary-color: #5e9de6; /* צבע משני */
+    --third-color: #c9c8c9; /* צבע נוסף */
+    --background-color: #f2f2f2; /* צבע רקע */
+    --text-color: #000; /* צבע טקסט */
+    font-size: 16px; /* גודל פונט בסיסי */
+    font-family: 'Assistant', sans-serif; /* משפחת פונט */
+}
+
+/* עיצוב כללי לגוף העמוד */
+body {
+    font-size: 1rem; /* 16px */
+    background-color: var(--background-color); /* רקע העמוד */
+    color: var(--text-color); /* צבע טקסט */
+    direction: rtl; /* כיוון כתיבה מימין לשמאל */
+    font-family: 'Assistant', sans-serif; /* פונט בסיסי */
+    text-align: right; /* יישור טקסט */
+}
+main {
+    flex: 1;
+}
+/* עיצוב לתמונות */
+img {
+    max-width: 100%; /* התאמה לגודל קונטיינר */
+    height: auto; /* שמירה על פרופורציות */
+}
+
+/*/-------------------------- מוודא שתניד הFOOTER יהיה למטה --------------------------/*/
+
+html, body {
+    height: 100%; /* גובה מלא למסך */
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* גובה מלא למסך */
+}
+
+
+
+/*/-------------------------- עיצוב לתפריט הניווט --------------------------/*/
+nav {
+    background-color: var(--primary-color); /* צבע רקע */
+    padding: 0.5rem 1.25rem; /* ריווח פנימי */
+    display: flex; /* יישור תוכן */
+    align-items: center; /* יישור אנכי */
+    justify-content: space-between;
+    height: auto; /* גובה אוטומטי */
+    position: fixed; /* מיקום קבוע */
+    width: 100%; /* מתפרש על כל רוחב המסך */
+    z-index: 1000; /* לוודא שהוא מעל אלמנטים אחרים */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* צל עדין למראה מודרני */
+}
+
+.nav a {
+    font-size: clamp(0.875rem, 2vw, 1rem); /* גודל משתנה בין 14px ל-16px */
+}
+
+#logo-img {
+    height: 2.8125rem; /* גובה הלוגו */
+}
+
+/* תפריט מוסתר כברירת מחדל במסכים קטנים */
+.flex-container-nav {
+    flex-direction: column; /* אלמנטים אנכיים */
+    position: absolute; /* מיקום יחסי להורה */
+    top: 3.5rem; /* מתחת ל-nav */
+    right: 0; /* צמוד לימין */
+    margin: 0; /* ביטול שוליים */
+    z-index: 1000; /* מעל תוכן אחר */
+    width: 60%; /* רוחב התפריט */
+    padding: 1.25rem; /* ריווח פנימי */
+    display: none; /* מוסתר כברירת מחדל */
+    list-style-type: none; /* ביטול נקודות */
+    background-color: var(--primary-color); /* רקע לבן */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל */
+}
+
+.nav-content {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+}
+.flex-container-nav a {
+    color: var(--background-color); /* צבע טקסט */
+    text-decoration: none; /* ביטול קו תחתון */
+    font-size: 1rem; /* גודל טקסט */
+    padding: 5px 10px; /* ריווח פנימי */
+    transition: background-color 0.3s ease; /* אפקט מעבר */
+}
+
+.flex-container-nav li {
+    padding: 0.625rem 0;
+    border-bottom: 0.0625rem solid var(--background-color); /* קו תחתון */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* אנימציה חלקה */
+}
+.flex-container-nav li:last-child {
+    border-bottom: none; /* ביטול הקו התחתון עבור הפריט האחרון */
+}
+
+/* עיצוב לכפתור ההורדה ולקישור עצמו עם אייקון וטקסט */
+#downloadBtn {
+    display: flex; /* יישור אייקון וטקסט בשורה */
+    align-items: center; /* יישור אנכי */
+    gap: 11px; /* רווח בין האייקון לטקסט */
+    color: var(--background-color); /* צבע טקסט */
+    text-decoration: none; /* ביטול קו תחתון */
+    padding: 0.5rem 0.9375rem; /* ריווח פנימי */
+    border: 0.125rem solid var(--third-color); /* מסגרת קבועה */
+    border-radius: 0.3125rem; /* עיגול פינות */
+}
+
+/* הצגת התפריט בלחיצה */
+.flex-container-nav:not(.hide-mobile) {
+    display: flex; /* מציג את התפריט */
+}
+.nav-content{
+    display: flex;
+    gap: 1rem;
+}
+/* כפתור הניווט */
+#nav-button {
+    display: block; /* מציג כפתור */
+    background: none; /* ללא רקע */
+    border: none; /* ללא גבול */
+    cursor: pointer; /* סמן לחיצה */
+    line-height: 0;
+    z-index: 1001; /* מעל התפריט */
+    color: var(--background-color); /* צבע לבן */
+    position: relative; /* מיקום יחסי */
+}
+
+/* סגנונות עבור קישורים לא פעילים */
+.flex-container-nav a.inactive {
+    cursor: not-allowed; /* שינוי הסמן ל"לא ניתן" */
+}
+
+/*/-------------------------- עיצוב header --------------------------/*/
+/* עיצוב הטקסט */
+header {
+    position: relative; /* מיקום יחסי עבור יישור */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 3.5rem;
+}
+/* עיצוב לתמונת הרקע */
+.header-image-wrapper {
+    position: absolute; /* התמונה תהיה מתחת לתוכן */
+    top: 0;
+    left: 0;
+    opacity: 50%;
+    width: 100%; /* התאמה לרוחב */
+    height: 100%; /* התאמה לגובה */
+    z-index: -1; /* שליחת התמונה אחורה */
+}
+
+#background-header-image {
+    width: 100%; /* התאמה לרוחב */
+    height: 100%; /* התאמה לגובה */
+    object-fit: cover; /* שמירה על כיסוי מלא */
+    object-position: left;
+}
+
+/* עיצוב לכותרות בתוך header */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 3.4rem); /* גודל משתנה בין 40px ל-54px */
+    font-weight: bold; /* עיצוב מודגש */
+    color: var(--primary-color); /* צבע */
+}
+
+h2 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem); /* גודל משתנה בין 19px ל-24px */
+    color: var(--primary-color); /* צבע */
+}
+
+/* עיצוב שורת חיפוש */
+.search-container {
+    display: flex; /* יישור תוכן */
+    flex-direction: column; /* אלמנטים אנכיים */
+    align-items: stretch; /* התאמה מלאה לקונטיינר */
+    width: 80%; /* רוחב */
+}
+
+.search-container input {
+    border: 1px solid var(--third-color); /* גבול */
+    border-radius: 10px; /* עיגול פינות */
+    font-size: 1rem; /* גודל טקסט */
+    margin-bottom: 1rem;
+}
+
+.search-container button {
+    border-radius: 0.625rem; /* עיגול פינות */
+    font-size: 1rem; /* גודל טקסט */
+    cursor: pointer; /* חץ לחיצה */
+}
+
+/*/-------------------------- עיצוב כפתורי סינון --------------------------/*/
+
+
+/* שינוי רקע הכפתורים של Bootstrap ללבן */
+.filter-button.btn-secondary {
+    background-color: rgba(242, 242, 242, 0.7) !important; /* צבע לבן עם שקיפות 70% */
+    color: #6c757d; /* צבע טקסט כהה */
+    border: 1px solid #c9c8c9; /* מסגרת אפורה בהירה */
+}
+
+/* אפקט hover: מילוי אפור וטקסט בצבע בהיר */
+.filter-button.btn-secondary:focus, .filter-button.active {
+    background-color: #6c757d !important; /* רקע אפור כהה */
+    color: var(--background-color) !important; /* צבע טקסט לבן (או רקע הבהיר הקיים) */
+    border-color: #6c757d; /* מסגרת אפורה כהה */
+}
+
+/*/-------------------------- עיצוב כרטיסיות --------------------------/*/
+
+.card {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* סגנונות ברירת מחדל (מסכים קטנים) - ללא אינטראקציית הובר או לחיצה */
+.btn-primary {
+    color: var(--background-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+/* מבטלים שינוי בצבעים גם אם יש הובר או לחיצה - יישארו אותו הדבר */
+.btn-primary:hover, .btn-primary:active {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    box-shadow: none;
+    cursor: default; /* מצביע רגיל */
+}
+
+.card {
+    overflow: hidden; /* מונע גלישה של התמונה מחוץ לגבולות הכרטיס */
+    transition: transform 0.3s ease; /* זמן האנימציה והפונקציה של המעבר */
+}
+
+
+/*/-------------------------- עיצוב חלק תחתון --------------------------/*/
+
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+
+/*/-------------------------- רספונסיביות למסכים גדולים בלבד --------------------------/*/
+
+@media only screen and (min-width: 992px) {
+
+    .flex-container-nav {
+        display: flex; /* מציג את התפריט כברירת מחדל */
+        flex-direction: row; /* אלמנטים אופקיים */
+        justify-content: flex-start; /* תפריט בצד ימין */
+        background-color: transparent; /* ללא רקע */
+        padding: 0; /* ביטול ריווח פנימי */
+        position: static; /* מיקום רגיל */
+        align-items: center;
+        width: auto; /* רוחב התפריט */
+    }
+
+    .flex-container-nav li {
+        border-bottom: none; /* קו תחתון */
+    }
+    .flex-container-nav li:hover {
+        background-color: var(--secondary-color); /* רקע במעבר */
+        color: var(--background-color); /* צבע טקסט */
+        border-radius: 5px; /* עיגול פינות */
+    }
+
+    #nav-button {
+        display: none; /* מסתיר כפתור ניווט */
+    }
+    
+    .search-container {
+        display: flex;
+        gap: 1%;
+        height: 45px;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .search-container input {
+        width: 25%;
+        height: 100%;
+        margin-bottom: 0;
+    }
+
+    .search-container button {
+        width: 10%;
+        height: 100%;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--background-color);
+        color: var(--secondary-color);
+        border: 1px solid var(--secondary-color);
+        cursor: pointer; /* מצביע לחיצה */
+    }
+
+    .btn-primary:active {
+        box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.3);
+        background-color: var(--background-color) !important;
+        color: var(--secondary-color) !important;
+    }
+
+    .filter-button.btn-secondary:hover {
+        background-color: #6c757d !important; /* רקע אפור כהה */
+        color: var(--background-color) !important; /* צבע טקסט לבן (או רקע הבהיר הקיים) */
+        border-color: #6c757d; /* מסגרת אפורה כהה */
+        transition: background-color 0.3s ease, color 0.3s ease; /* אנימציה חלקה */
+    }
+}
